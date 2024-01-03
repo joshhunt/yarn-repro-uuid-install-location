@@ -1,4 +1,15 @@
 {
   "name": "repro-uuid-install-location",
-  "packageManager": "yarn@4.0.0"
+  "packageManager": "yarn@4.0.0",
+  "private": true,
+  "dependencies": {
+    "@grafana/experimental": "1.7.4",
+    "app": "link:./public/app"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/grafana-ui",
+      "public/app/plugins/*/*"
+    ]
+  }
 }

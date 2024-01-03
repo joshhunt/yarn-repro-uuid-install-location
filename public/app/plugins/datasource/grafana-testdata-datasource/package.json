@@ -1,0 +1,9 @@
+{
+  "name": "@grafana-plugins/grafana-testdata-datasource",
+  "description": "Generates test data in different forms",
+  "private": true,
+  "version": "10.3.0-pre",
+  "dependencies": {
+    "@grafana/experimental": "1.7.0"
+  }
+}

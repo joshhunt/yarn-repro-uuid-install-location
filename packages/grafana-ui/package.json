@@ -1,0 +1,52 @@
+{
+  "author": "Grafana Labs",
+  "license": "Apache-2.0",
+  "name": "@grafana/ui",
+  "version": "10.3.0-pre",
+  "description": "Grafana Components Library",
+  "keywords": [
+    "grafana",
+    "react",
+    "react-component",
+    "typescript"
+  ],
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/grafana/grafana.git",
+    "directory": "packages/grafana-ui"
+  },
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "publishConfig": {
+    "main": "dist/index.js",
+    "module": "dist/esm/index.js",
+    "types": "dist/index.d.ts",
+    "access": "public"
+  },
+  "files": [
+    "./dist",
+    "!./dist/storybook",
+    "./README.md",
+    "./CHANGELOG.md",
+    "./LICENSE_APACHE2"
+  ],
+  "scripts": {
+    "build": "tsc -p ./tsconfig.build.json && rollup -c rollup.config.ts",
+    "bundle": "rollup -c rollup.config.ts",
+    "clean": "rimraf ./dist ./compiled ./package.tgz",
+    "storybook": "storybook dev -p 9001 -c .storybook --no-open",
+    "storybook:build": "storybook build -o ./dist/storybook -c .storybook",
+    "typecheck": "tsc --emitDeclarationOnly false --noEmit",
+    "generate-icons-bundle-cache-file": "node ./scripts/generate-icon-bundle.js",
+    "prepack": "cp package.json package.json.bak && node ../../scripts/prepare-packagejson.js",
+    "postpack": "mv package.json.bak package.json"
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11"
+  ],
+  "dependencies": {
+    "uuid": "9.0.0"
+  }
+}
